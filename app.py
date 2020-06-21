@@ -26,21 +26,6 @@ def root():
 def index():
    return render_template('index.html')
 
-@app.route('/contact.html')
-def contact():
-   return render_template('contact.html')
-
-@app.route('/news.html')
-def news():
-   return render_template('news.html')
-
-@app.route('/about.html')
-def about():
-   return render_template('about.html')
-
-@app.route('/prevention.html')
-def prevention():
-   return render_template('prevention.html')
 
 @app.route('/upload.html')
 def upload():
@@ -186,7 +171,7 @@ def uploaded_ct():
       xception_ct_pred = str('%.2f' % ((1-probability[0])*100) + '% NonCOVID')
    print(xception_ct_pred)
 
-   return render_template('results_ct.html',resnet_ct_pred=resnet_ct_pred,inception_ct_pred=inception_ct_pred,xception_ct_pred=xception_ct_pred)
+   return render_template('results_ct.html',resnet_ct_pred=resnet_ct_pred,inception_ct_pred=inception_ct_pred,xception_ct_pred=xception_ct_pred, vgg_ct_pred=vgg_ct_pred)
 
 if __name__ == '__main__':
    app.secret_key = ".."
