@@ -140,7 +140,7 @@ def uploaded_ct():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'upload_ct.jpg'))
 
    resnet_ct = load_model('models/resnet_ct.h5')
-   # vgg_ct = load_model('models/vgg_ct.h5')
+   vgg_ct = load_model('models/vgg_ct.h5')
    inception_ct = load_model('models/inception_ct.h5')
    xception_ct = load_model('models/xception_ct.h5')
 
