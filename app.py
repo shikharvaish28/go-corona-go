@@ -38,10 +38,6 @@ def news():
 def about():
    return render_template('about.html')
 
-@app.route('/faqs.html')
-def faqs():
-   return render_template('faqs.html')
-
 @app.route('/prevention.html')
 def prevention():
    return render_template('prevention.html')
@@ -76,10 +72,10 @@ def uploaded_chest():
             # filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'upload_chest.jpg'))
 
-   resnet_chest = load_model('models/resnet_chest.h5')
-   vgg_chest = load_model('models/vgg_chest.h5')
-   inception_chest = load_model('models/inceptionv3_chest.h5')
-   xception_chest = load_model('models/xception_chest.h5')
+   resnet_chest = load_model("./models/resnet_chest.h5")
+   vgg_chest = load_model("./models/vgg_chest.h5")
+   inception_chest = load_model("./models/inceptionv3_chest.h5")
+   xception_chest = load_model("./models/xception_chest.h5")
 
    image = cv2.imread('./flask app/assets/images/upload_chest.jpg') # read file 
    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # arrange format as per keras
@@ -193,4 +189,4 @@ def uploaded_ct():
 
 if __name__ == '__main__':
    app.secret_key = ".."
-   app.run()
+   app.run(debug=True)
